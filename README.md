@@ -1,4 +1,4 @@
 # GoatAI 
 Trafic Analysis AI
 
-- for shits and giggles: furstxd, douxxtech, funicat1, cbladeOfficial, ANW
+- for shits and giggles: furstxd, douxxtech, funicat1, cbladeOfficial, ANW, starloexoliz11

@@ -2,18 +2,21 @@
 
 A lightweight, high-performance tabular classifier for real-time DDoS attack detection, delivering accurate results in seconds.
 
+> [!NOTE]
+> goat-ai-v2 is out. You can find it in `src/v2`
+
 ## Features
 
 - **Fast**: Detection in under a few seconds
 - **Compact**: Only 24.93 KB total parameters
-- **Accurate**: 98.54% accuracy on synthetic benchmarks
+- **Accurate**: 98.54% accuracy on synthetic benchmarks (v1)
 - **Easy to use**: Simple Python API with minimal dependencies
 
 ## Resources
 
 All model artifacts are available on Hugging Face under the [netgoat-ai](https://huggingface.co/netgoat-ai) organization:
 
-- **[Model Weights](https://huggingface.co/netgoat-ai/GoatAI)** - Pre-trained model ready for inference
+- **[Model Weights](https://huggingface.co/netgoat-ai/goat-ai)** - Pre-trained model ready for inference
 - **[Demo Space](https://huggingface.co/spaces/netgoat-ai/GoatAI-space)** - Interactive web demo
 - **[Dataset](https://huggingface.co/datasets/netgoat-ai/SynthDDoS)** - Synthetic DDoS training data
 
@@ -56,7 +59,8 @@ scikit-learn>=1.0.0
 The `src` directory contains two main Python scripts:
 
 1. **`make_dataset.py`** - Generates the synthetic DDoS dataset
-2. **`train.py`** - Trains the model on the generated dataset
+2. **`v1/train.py`** - Trains the model on the generated dataset
+3. **`v2/train.py`** - Trains the model on the generated dataset and CIC-DDOS2019
 
 ## Model Specifications
 
@@ -66,7 +70,7 @@ The `src` directory contains two main Python scripts:
 | Trainable parameters | 5,982 (23.37 KB) |
 | Non-trainable parameters | 400 (1.56 KB) |
 
-## Benchmark Results (Synthetic Dataset)
+## Benchmark Results for v1 (Synthetic Dataset)
 
 | Metric | Score |
 |--------|-------|
@@ -96,5 +100,10 @@ pip install -r requirements.txt
 python src/make_dataset.py
 
 # Train the model
-python src/train.py
+python src/v1/train.py # replace the path to the synthetic dataset where you saved the dataset that you generate
+
+# or
+python src/v2/train.py # requires you to have CIC-DDOS2019 downloaded.
+# replace the path to the synthetic dataset where you saved the dataset that you generate
+
 ```

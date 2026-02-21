@@ -3,7 +3,9 @@
 A lightweight, high-performance tabular classifier for real-time DDoS attack detection, delivering accurate results in seconds.
 
 > [!NOTE]
-> goat-ai-v2 is out. You can find it in `src/v2`
+> #### Feb 21, 2026
+> 1. All the goat-ai models are now saved in their own directory `src/v[version goes here]` for version control for who wants the old version of the latest one.
+> 2. goat-ai-v2 is out. You can find it in `src/v2`
 
 ## Features
 

@@ -1,11 +1,6 @@
-# GoatAI
+# Koda
 
 A lightweight, high-performance tabular classifier for real-time DDoS attack detection, delivering accurate results in seconds.
-
-> [!NOTE]
-> #### Feb 21, 2026
-> 1. All the goat-ai models are now saved in their own directory `src/v[version goes here]` for version control for who wants the old version of the latest one.
-> 2. goat-ai-v2 is out. You can find it in `src/v2`
 
 ## Features
 
@@ -18,8 +13,8 @@ A lightweight, high-performance tabular classifier for real-time DDoS attack det
 
 All model artifacts are available on Hugging Face under the [netgoat-ai](https://huggingface.co/netgoat-ai) organization:
 
-- **[Model Weights](https://huggingface.co/netgoat-ai/goat-ai)** - Pre-trained model ready for inference
-- **[Demo Space](https://huggingface.co/spaces/netgoat-ai/GoatAI-space)** - Interactive web demo
+- **[Model Weights](https://huggingface.co/netgoat-ai/koda-2)** - Pre-trained model ready for inference
+- **[Demo Space](https://huggingface.co/spaces/netgoat-ai/koda-2-space)** - Interactive web demo
 - **[Dataset](https://huggingface.co/datasets/netgoat-ai/SynthDDoS)** - Synthetic DDoS training data
 
 ## Requirements
@@ -86,7 +81,7 @@ The `src` directory contains two main Python scripts:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/netgoat-xyz/GoatAI.git
+git clone https://github.com/netgoat-xyz/koda.git
 cd GoatAI
 ```
 

@@ -8,19 +8,21 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
 import joblib
 import json
-import os
+from pathlib import Path
 
-TRAIN_FILES  = ['synthetic_ddos_dataset.csv', "cicddos2019_dataset.csv"]   # model trains ONLY on these
-TEST_FILE    = 'cicddos2019_test.csv'               # unseen real-world evaluation
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+TRAIN_FILES  = [PROJECT_ROOT / 'synthetic_ddos_dataset.csv', PROJECT_ROOT / 'cicddos2019_dataset.csv']
+TEST_FILE    = PROJECT_ROOT / 'cicddos2019_test.csv'  # unseen real-world evaluation
 
 CHUNK_SIZE       = 200_000
 BATCH_SIZE       = 512
 STEPS_PER_EPOCH  = 2000
 EPOCHS           = 2 # how lond the model is being trained
 
-CANONICAL_FEATURES_FILE = 'canonical_features.json'
-SCALER_FILE             = 'scaler.pkl'
-MODEL_FILE              = 'model.keras'
+CANONICAL_FEATURES_FILE = PROJECT_ROOT / 'canonical_features.json'
+SCALER_FILE             = PROJECT_ROOT / 'scaler.pkl'
+MODEL_FILE              = PROJECT_ROOT / 'model.keras'
 
 # Discover canonical features from the first training file
 # (legacy schema — inference code never needs to change)
@@ -60,7 +62,7 @@ def get_scaler(filenames, canonical_features, sample_limit=1_000_000):
     total_seen = 0
 
     for filename in filenames:
-        if not os.path.exists(filename):
+        if not filename.exists():
             print(f"  [SKIP] {filename} not found.")
             continue
         print(f"  Fitting on: {filename}")
@@ -84,7 +86,7 @@ def get_scaler(filenames, canonical_features, sample_limit=1_000_000):
 def train_generator(filenames, canonical_features, scaler, batch_size):
     while True:
         for filename in filenames:
-            if not os.path.exists(filename):
+            if not filename.exists():
                 continue
             for chunk in pd.read_csv(filename, chunksize=CHUNK_SIZE):
                 chunk.replace([np.inf, -np.inf], np.nan, inplace=True)
@@ -210,7 +212,7 @@ if __name__ == '__main__':
     print("\n--- Phase 3a: Sanity Check — Evaluating on SYNTHETIC (train distribution) ---")
     threshold, _, _, _ = evaluate(autoencoder, scaler, canonical_features, TRAIN_FILES[0])
 
-    if os.path.exists(TEST_FILE):
+    if TEST_FILE.exists():
         print("\n--- Phase 3b: Real Test — Evaluating on CIC-DDoS2019 (unseen real traffic) ---")
         evaluate(autoencoder, scaler, canonical_features, TEST_FILE, threshold=threshold)
     else:

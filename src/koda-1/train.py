@@ -5,9 +5,10 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Dense, Dropout, BatchNormalization, Activation
 from tensorflow.keras.optimizers import Adam
 from sklearn.preprocessing import MinMaxScaler
-import os
+from pathlib import Path
 
-DATA_FILE = 'dataset.csv'
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DATA_FILE = PROJECT_ROOT / 'dataset.csv'
 CHUNK_SIZE = 200_000 
 BATCH_SIZE = 512
 STEPS_PER_EPOCH = 2000 
@@ -155,5 +156,5 @@ if scaler:
     print(f"Actual Benign:   {cm[0][0]:<16} | {cm[0][1]}")
     print(f"Actual Attack:   {cm[1][0]:<16} | {cm[1][1]}")
     
-    autoencoder.save('ddos_detector_model.keras')
+    autoencoder.save(PROJECT_ROOT / 'ddos_detector_model.keras')
     print("\nModel saved.")

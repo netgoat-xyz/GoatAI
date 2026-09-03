@@ -53,11 +53,11 @@ scikit-learn>=1.0.0
 
 ## Repository Structure
 
-The `src` directory contains two main Python scripts:
+The `src` directory contains the dataset generator and two versioned trainers:
 
 1. **`make_dataset.py`** - Generates the synthetic DDoS dataset
-2. **`v1/train.py`** - Trains the model on the generated dataset
-3. **`v2/train.py`** - Trains the model on the generated dataset and CIC-DDOS2019
+2. **`koda-1/train.py`** - Trains the first Koda model on the generated dataset
+3. **`koda-2/train.py`** - Trains the second Koda model on the generated dataset and CIC-DDOS2019
 
 ## Model Specifications
 
@@ -82,7 +82,7 @@ The `src` directory contains two main Python scripts:
 1. Clone the repository:
 ```bash
 git clone https://github.com/netgoat-xyz/koda.git
-cd GoatAI
+cd koda
 ```
 
 2. Install dependencies:
@@ -97,10 +97,10 @@ pip install -r requirements.txt
 python src/make_dataset.py
 
 # Train the model
-python src/v1/train.py # replace the path to the synthetic dataset where you saved the dataset that you generate
+python src/koda-1/train.py # uses dataset.csv from the repository root
 
 # or
-python src/v2/train.py # requires you to have CIC-DDOS2019 downloaded.
+python src/koda-2/train.py # requires CIC-DDOS2019 files in the repository root.
 # replace the path to the synthetic dataset where you saved the dataset that you generate
 
 ```

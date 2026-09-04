@@ -1,0 +1,25 @@
+{"id":"b01","label":"benign","method":"GET","path":"/products","query":"q=summer+shoes&sort=price","headers":"user-agent: storefront","body":""}
+{"id":"b02","label":"benign","method":"POST","path":"/api/login","query":"","headers":"content-type: application/json","body":"{\"email\":\"sam@example.com\",\"password\":\"correct horse battery staple\"}"}
+{"id":"b03","label":"benign","method":"GET","path":"/docs/sql","query":"topic=select-and-where","headers":"","body":""}
+{"id":"b04","label":"benign","method":"POST","path":"/markdown/preview","query":"","headers":"content-type: text/plain","body":"Use the script element only with a strict content security policy."}
+{"id":"b05","label":"benign","method":"GET","path":"/support","query":"q=how+to+escape+html+onload+attributes","headers":"","body":""}
+{"id":"b06","label":"benign","method":"PUT","path":"/api/profile","query":"","headers":"content-type: application/json","body":"{\"display_name\":\"Robert O'Brien\",\"city\":\"Union\"}"}
+{"id":"b07","label":"benign","method":"GET","path":"/download/report.csv","query":"month=2026-08","headers":"accept: text/csv","body":""}
+{"id":"b08","label":"benign","method":"POST","path":"/comments","query":"","headers":"content-type: application/json","body":"{\"message\":\"The alert was confirmed by the operations team.\"}"}
+{"id":"b09","label":"benign","method":"GET","path":"/redirect-info","query":"target=https%3A%2F%2Fexample.org%2Fdocs","headers":"","body":""}
+{"id":"b10","label":"benign","method":"POST","path":"/api/search","query":"","headers":"content-type: application/json","body":"{\"filters\":{\"price\":{\"gt\":20}},\"limit\":10}"}
+{"id":"b11","label":"benign","method":"GET","path":"/courses/javascript-basics","query":"lesson=functions","headers":"","body":""}
+{"id":"b12","label":"benign","method":"POST","path":"/webhook","query":"","headers":"x-event: deployment.completed","body":"{\"status\":\"ok\",\"command\":\"build completed\"}"}
+{"id":"a01","label":"malicious","method":"GET","path":"/items","query":"id=7%20UNION%20ALL%20SELECT%20token%20FROM%20accounts","headers":"","body":""}
+{"id":"a02","label":"malicious","method":"GET","path":"/search","query":"q=%253Cimg%2520src%253Dx%2520onerror%253Dalert(9)%253E","headers":"","body":""}
+{"id":"a03","label":"malicious","method":"GET","path":"/public/..%2F..%2Fetc%2Fshadow","query":"","headers":"","body":""}
+{"id":"a04","label":"malicious","method":"POST","path":"/jobs","query":"","headers":"content-type: application/json","body":"{\"name\":\"backup; whoami\"}"}
+{"id":"a05","label":"malicious","method":"GET","path":"/proxy","query":"url=http%3A%2F%2F169.254.169.254%2Flatest%2Fmeta-data","headers":"","body":""}
+{"id":"a06","label":"malicious","method":"GET","path":"/","query":"next=%250d%250aSet-Cookie%3Aadmin%3Dtrue","headers":"","body":""}
+{"id":"a07","label":"malicious","method":"POST","path":"/directory","query":"","headers":"content-type: text/plain","body":"(|(objectClass=*)(uid=*))"}
+{"id":"a08","label":"malicious","method":"POST","path":"/api/filter","query":"","headers":"content-type: application/json","body":"{\"username\":{\"$ne\":null},\"$where\":\"sleep(1000)\"}"}
+{"id":"a09","label":"malicious","method":"POST","path":"/render","query":"","headers":"content-type: text/plain","body":"${7*73421}"}
+{"id":"a10","label":"malicious","method":"POST","path":"/xml","query":"","headers":"content-type: application/xml","body":"<!DOCTYPE doc [<!ENTITY secret SYSTEM \"file:///etc/hostname\">]><doc>&secret;</doc>"}
+{"id":"a11","label":"malicious","method":"GET","path":"/origin","query":"url=gopher%3A%2F%2F127.0.0.1%3A6379%2F_ping","headers":"","body":""}
+{"id":"a12","label":"malicious","method":"POST","path":"/template","query":"","headers":"content-type: text/plain","body":"<#assign run=\"freemarker.template.utility.Execute\"?new()>${run(\"id\")}"}
+

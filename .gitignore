@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Generated training/evaluation data and model outputs.
+*.csv
+*.keras
+*.joblib
+*.pkl
+artifacts/
+logs/
+reports/
+
+# Keep the release-asset destination in source control.
+!models/.gitkeep
